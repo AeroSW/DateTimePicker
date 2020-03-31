@@ -1,0 +1,56 @@
+<div class=date-time-input-container>
+    <input type=text class=date-time-input placeholder="mm/dd/yyyy" name="myControl"
+        [formControl]="myControl" (focusout)="!isInputEmpty() && formatInput()"/>
+    <div class=date-icon (click)="toggleCalendar()">
+        <span class=material-icons>calendar_today</span>
+    </div>
+</div>
+<div class="date-time-container" *ngIf="display_calendar">
+    <div class=date-time-header>
+        <div class=date-time-day-of-week>
+            {{DaysOfWeek[selected_datetime.getDay()]["name"]}}
+        </div>
+        <div class=date-time-display>
+            <div class=date-time-month-year>
+                {{MonthsOfYear[selected_datetime.getMonth()]["abbr"] + " " + selected_datetime.getFullYear()}}
+            </div>
+            <div class=date-time-selected-date>
+                {{selected_datetime.getDate()}}
+            </div>
+        </div>
+    </div>
+    <div class=date-time-datepicker>
+        <div class=month-selector>
+            <div class=date-time-arrow (click)="updateMonth(-1)">
+                <span class="material-icons">navigate_before</span>
+            </div>
+            <div class=current-month>
+                <span>{{MonthsOfYear[current_month]["name"] + " " + current_year}}</span>
+            </div>
+            <div class=date-time-arrow (click)="updateMonth(1)">
+                <span class="material-icons">navigate_next</span>
+            </div>
+        </div>
+        <table class=date-time-table>
+            <thead>
+                <tr>
+                    <th *ngFor="let day of DaysOfWeek">
+                        {{day["abbr"]}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let week of dates" >
+                    <td *ngFor="let date of week">
+                        <div class=date-spacer>
+                            <div class=date-literal (click)="isSelectable(date) && selectDate(date)"
+                                [ngClass]="{'selectable': isSelectable(date), 'selected': isSelected(date)}">
+                                <span>{{date.date}}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+.date-time-input-container{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 3px 1px black;
+    padding: 4px;
+    margin-bottom: 8px;
+    width: fit-content;
+    position: relative;
+    .date-time-input{
+        outline: none;
+        border: none;
+        font-size: 12pt;
+    }
+    .date-icon{
+        border-radius: 3px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        span{
+            font-size: 14pt;
+        }
+        &:hover{
+            background-color: rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+    }
+}
+.date-time-container{
+    box-shadow: 0 0 5px 3px rgb(0,0,0);
+    max-width: 280px;
+    z-index: 8000;
+    position: absolute;
+    span{
+        color: rgb(80,80,80);
+        font-weight: bold;
+    }
+}
+.date-time-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    .date-time-day-of-week{
+        background-color: rgb(56, 201, 133);
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        position: relative;
+    }
+    .date-time-display{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(54, 228, 141);
+        position: relative;
+        .date-time-month-year{
+            font-size: 16pt;
+            position: relative;
+        }
+        .date-time-selected-date{
+            font-size: 30pt;
+            position: relative;
+        }
+    }
+}
+.month-selector{
+    display: flex;
+    flex-direction: row;
+    background: white;
+    .date-time-arrow{
+        width: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover{
+            cursor: pointer;
+            user-select: none;
+            span{
+                color: black;
+            }
+        }
+    }
+    .current-month{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        span{
+            color: black;
+        }
+    }
+}
+
+.date-time-table{
+    position: relative;
+    background-color: white;
+    tr{
+        background-color: white;
+        td, th{
+            background-color: white;
+            padding: 0;
+            width: 40px;
+            .date-spacer{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                position: relative;
+                .date-literal{
+                    font: arial;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 4px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    &.selectable{
+                        span{
+                            color: black;
+                        }
+                        &:hover{
+                            background-color: darken($color: rgba(0, 0, 0, 0.2), $amount: .08);
+                            cursor: pointer;
+                        }
+                    }
+                    &.selected{
+                        background-color: rgb(56, 201, 133);
+                        span{
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

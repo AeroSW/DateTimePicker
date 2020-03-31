@@ -1,0 +1,13 @@
+.fake-form{
+    display: flex;
+    flex-direction: column;
+    input{
+        border: none;
+        outline: none;
+        width: fit-content;
+        box-shadow: 0 0 3px 1px black;
+        padding: 4px;
+        margin-bottom: 8px;
+        font-size: 14pt;
+    }
+}
